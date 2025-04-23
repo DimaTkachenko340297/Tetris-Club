@@ -1,0 +1,122 @@
+/* === base === */
+html, body { 
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    height: 100%;
+    margin: 0; /* Убираем отступы по умолчанию */
+}
+
+/* === layout === */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Устанавливаем высоту на всю высоту экрана */
+}
+
+.main {
+    flex-grow: 1;  /* Это заставит основное содержимое заполнять доступное пространство */
+}
+
+/* === typography === */
+h1, h2, h3 {
+    font-family: arial black;
+    font-weight: bold;
+    color: #f8f9fa;
+}
+
+h1.display-4 {
+    font-size: 3rem;
+}
+
+/* === navbar === */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+/* Иконки будут белыми */
+.navbar-nav i {
+    color: white;
+}
+
+/* Для активной страницы — меняем цвет иконки */
+.navbar-nav .nav-link.active i {
+    color: #007bff; /* или любой другой цвет */
+}
+
+/* Если хочешь изменить цвет на навигационную панель */
+.navbar-nav .nav-link:hover i {
+    color: #f8f9fa;
+}
+
+
+header {
+    z-index: 1000;
+}
+
+.fas {
+    font-size: 1.5rem;
+}
+
+/* === title === */
+.title {
+    background: linear-gradient(to bottom, #007bff, #0056b3);
+}
+
+.title .btn {
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.title .btn:hover {
+    background-color: #0056b3;
+}
+
+/* === features === */
+.features h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* === footer === */
+.stylfooter {
+    background-color: #343434;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    position: flex;
+    bottom: 0%;
+}
+
+.stylfooter a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.stylfooter a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.stylfooter-icons a {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 25px;
+}
+
+.stylfooter-author h4 {
+    padding-top: 20px;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* === responsive === */
+@media (max-width: 768px) {
+    header .display-4 {
+        font-size: 2.5rem;
+    }
+}

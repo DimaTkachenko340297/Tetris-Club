@@ -1,0 +1,86 @@
+body {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+.wrapper {
+    padding-top: 50px;
+}
+
+header {
+    padding: 5rem;
+}
+/* nav */
+header {
+    z-index: 1000;
+}
+.fas {
+    font-size: 1.5rem;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #2575fc;
+}
+
+.contact-info {
+    padding: 50px 0;
+    background-color: #111;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.contact-card {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-card h4 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.contact-card i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #111;
+    padding: 20px;
+    color: #fff;
+}
+
+.footer-icons i {
+    font-size: 24px;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.footer-icons i:hover {
+    color: #2575fc;
+}
+
+.main a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.main a:hover {
+    text-decoration: underline;
+}
