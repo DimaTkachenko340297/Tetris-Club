@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Po 07.Apr 2025, 22:03
+-- Čas generovania: Út 29.Apr 2025, 00:40
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Databáza: `blog_db`
+-- Databáza: `db_blog`
 --
 
 -- --------------------------------------------------------
@@ -56,6 +56,14 @@ CREATE TABLE `contact` (
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Sťahujem dáta pre tabuľku `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `message`) VALUES
+(1, 'Livia', 'lkelebercova@ukf.sk', 'Moja sprava'),
+(2, 'a', 'kelebercova24@gmail.com', '<script>\r\nalert(\'hello\');\r\n</script>');
+
 -- --------------------------------------------------------
 
 --
@@ -71,20 +79,6 @@ CREATE TABLE `portfolio` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
---
--- Sťahujem dáta pre tabuľku `portfolio`
---
-
-INSERT INTO `portfolio` (`id`, `user_id`, `name`, `content`, `image`, `created_at`) VALUES
-(1, 1, 'Webstránka 1', 'Obsah1', 'assets/img/portfolio/portfolio1.jpg', '2025-04-07 13:54:36'),
-(2, 1, 'Webstránka 2', 'Obsah2', 'assets/img/portfolio/portfolio2.jpg', '2025-04-07 13:54:36'),
-(3, 1, 'Webstránka 3', 'Obsah3', 'assets/img/portfolio/portfolio3.jpg', '2025-04-07 13:54:36'),
-(4, 1, 'Webstránka 4', 'Obsah4', 'assets/img/portfolio/portfolio4.jpg', '2025-04-07 13:54:36'),
-(5, 1, 'Webstránka 5', 'Obsah5', 'assets/img/portfolio/portfolio5.jpg', '2025-04-07 13:54:36'),
-(6, 1, 'Webstránka 6', 'Obsah6', 'assets/img/portfolio/portfolio6.jpg', '2025-04-07 13:54:36'),
-(7, 1, 'Webstránka 7', 'Obsah7', 'assets/img/portfolio/portfolio7.jpg', '2025-04-07 13:54:36'),
-(8, 1, 'Webstránka 8', 'Obsah8', 'assets/img/portfolio/portfolio8.jpg', '2025-04-07 13:54:36');
-
 -- --------------------------------------------------------
 
 --
@@ -95,20 +89,6 @@ CREATE TABLE `portfolio_categories` (
   `post_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
-
---
--- Sťahujem dáta pre tabuľku `portfolio_categories`
---
-
-INSERT INTO `portfolio_categories` (`post_id`, `category_id`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 1),
-(6, 2),
-(7, 3),
-(8, 4);
 
 -- --------------------------------------------------------
 
@@ -122,6 +102,7 @@ CREATE TABLE `users` (
   `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` int(11) NOT NULL,
+  `points` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
@@ -129,9 +110,9 @@ CREATE TABLE `users` (
 -- Sťahujem dáta pre tabuľku `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(1, 'Admin', 'admin@example.com', '21232f297a57a5a743894a0e4a801fc3', 0, '2025-04-07 13:54:35'),
-(2, 'user', 'user@example.com', 'ee11cbb19052e40b07aac0ca060c23ee', 1, '2025-04-07 19:17:54');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `points`, `created_at`) VALUES
+(5, 'admin', 'admin@example.com', '$2y$10$D70SoY/KX7O0w2w/CJi97.JbqCJ1dwTP6F.w24sMBVFlrxSF8gSCC', 0, 0, '2025-04-28 21:30:33'),
+(6, 'user', 'user@example.com', '$2y$10$G2GzEDQtlA.32.FFiNyV1.uMgAxdD7jmm40jdNKFVrSSodTqLp2q2', 1, 0, '2025-04-28 21:30:49');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -185,7 +166,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT pre tabuľku `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pre tabuľku `portfolio`
@@ -197,7 +178,7 @@ ALTER TABLE `portfolio`
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Obmedzenie pre exportované tabuľky

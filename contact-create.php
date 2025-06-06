@@ -1,8 +1,8 @@
 <?php
-require_once(__DIR__.'/../_inc/classes/Menu.php');
-require_once '../_inc/classes/Database.php';
-require_once '../_inc/classes/Contact.php';
-include('../partials/header.php');
+require_once('_inc/classes/Menu.php');
+require_once '_inc/classes/Database.php';
+require_once '_inc/classes/Contact.php';
+include('partials/header.php');
 
 $db = new Database();
 $contact = new Contact($db);
@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $message = $_POST['message'];
     //print_r($_POST);
     if ($contact->create($name, $email, $message)) {
-      header("Location: ../admin.php");
+      header("Location: admin.php");
       exit;
     } else {
         echo "Error creating contact.";
@@ -35,5 +35,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </section>
 </main>
 <?php
-include('../partials/footer.php');
+include('partials/footer.php');
 ?>

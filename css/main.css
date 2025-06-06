@@ -2,7 +2,7 @@
 html, body { 
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #212529;
     background-color: #f8f9fa;
     height: 100%;
     margin: 0; /* Убираем отступы по умолчанию */
@@ -83,12 +83,13 @@ header {
 
 /* === footer === */
 .stylfooter {
-    background-color: #343434;
+    background-color: #212529;
     color: #ccc;
     padding: 20px 0;
     text-align: center;
-    position: flex;
-    bottom: 0%;
+    position: relative;
+    width: 100%;
+    bottom: 0;
 }
 
 .stylfooter a {
@@ -112,11 +113,59 @@ header {
     padding-top: 20px;
     color: #ccc;
     font-size: 16px;
+    margin: 0; /* Добавлено для устранения отступов */
 }
 
 /* === responsive === */
 @media (max-width: 768px) {
     header .display-4 {
         font-size: 2.5rem;
+    }
+    
+    .stylfooter {
+        padding: 15px 0; /* Уменьшенный отступ для мобильных */
+    }
+}
+/* ====== login ====== */
+
+/* === navbar === */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Иконки будут белыми */
+.navbar-nav i {
+    color: white;
+}
+
+/* Для активной страницы — меняем цвет иконки */
+.navbar-nav .nav-link.active i {
+    color: #007bff; /* или любой другой цвет */
+}
+
+/* Если хочешь изменить цвет на навигационную панель */
+.navbar-nav .nav-link:hover i {
+    color: #f8f9fa;
+}
+
+/* Стили для ссылки на выход */
+.navbar-nav .logout-link {
+    color: #ccc; /* Цвет текста для ссылки выхода, согласованный с footer */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .logout-link:hover {
+    color: #fff; /* Белый цвет при наведении, как в footer */
+    text-decoration: none; /* Убираем подчеркивание при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .navbar-nav .logout-link {
+        font-size: 1rem; /* Уменьшаем размер шрифта для мобильных */
+        padding: 0.5rem 1rem; /* Уменьшенные отступы */
     }
 }

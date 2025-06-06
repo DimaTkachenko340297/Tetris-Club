@@ -1,3 +1,16 @@
+<?php
+require_once('_inc/autoload.php');
+
+$_SESSION['test'] = 'hello';
+echo 'Session test: ' . $_SESSION['test'];
+
+
+$db = new Database();
+$auth = new Authenticate($db);
+
+print_r($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -18,6 +31,15 @@
     switch ($currentPage) {
         case 'contact':
             echo '<link rel="stylesheet" href="css/style-contact.css">';
+            break;
+        case 'admin':
+            echo '<link rel="stylesheet" href="css/admin.css">';
+            break;
+        case 'login':
+            echo '<link rel="stylesheet" href="css/login.css">';
+            break;
+        case 'user-create':
+            echo '<link rel="stylesheet" href="css/login.css">';
             break;
         default:
             echo '<link rel="stylesheet" href="css/main.css">';
@@ -52,6 +74,12 @@
                                 echo '</li>';
                             }
                             ?>
+<!-- Odkaz na odhlásenie, ak je používateľ prihlásený -->
+<?php if ($auth->isLoggedIn()) : ?>
+    <li class="nav-item">
+        <a class="nav-link logout-link" href="logout.php">Odhlásiť sa</a>
+    </li>
+<?php endif; ?>
                         </ul>
                     </div>
                 </div>

@@ -12,9 +12,9 @@ class Menu
         if (empty($menuItems)) {
             $menuItems = [
                 ['label' => '', 'link' => 'index.php', 'icon' => 'fas fa-home'],
-                ['label' => '', 'link' => 'galeria.php', 'icon' => 'fas fa-briefcase'],
+                ['label' => '', 'link' => 'tetris.php', 'icon' => 'fas fa-gamepad'],
                 ['label' => '', 'link' => 'o_nas.php', 'icon' => 'fas fa-question-circle'],
-                ['label' => '', 'link' => 'kontakt.php', 'icon' => 'fas fa-envelope']
+                //['label' => '', 'link' => 'admin.php', 'icon' => 'fas fa-envelope']
             ];
         }
         

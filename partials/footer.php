@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer bg-dark text-light py-3 text-center w-100">
     <section class="stylfooter">
         <div class="container">
             <div class="row">
