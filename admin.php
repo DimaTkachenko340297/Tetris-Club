@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_message'])) {
         header("Location: admin.php?message_sent=1");
         exit;
     } else {
-        $error = "Ошибка при отправке сообщения";
+        $error = "Error sending message";
     }
 }
 
@@ -36,7 +36,7 @@ if (isset($_GET['delete'])) {
         header("Location: admin.php");
         exit;
     } else {
-        $error = "Вы не авторизованы для удаления этого сообщения.";
+        $error = "You are not authorized to delete this message.";
     }
 }
 
@@ -47,10 +47,10 @@ if ($userRole == 0 && isset($_GET['delete_user'])) {
             header("Location: admin.php");
             exit;
         } else {
-            $error = "Ошибка при удалении пользователя";
+            $error = "Error deleting user";
         }
     } else {
-        $error = "Вы не можете удалить самого себя";
+        $error = "You can't delete yourself";
     }
 }
 
@@ -96,7 +96,7 @@ include('partials/header.php');
                                     <?php if ($userRole == 0 || ($con['email'] ?? '') == $userEmail): ?>
                                         <a href="contact-edit.php?id=<?= htmlspecialchars($con['id']) ?>" class="btn btn-sm btn-warning">Edit</a>
                                         <a href="?delete=<?= htmlspecialchars($con['id']) ?>" class="btn btn-sm btn-danger" 
-                                           onclick="return confirm('Удалить это сообщение?')">Delete</a>
+                                           onclick="return confirm('Should I delete this message?')">Delete</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>
