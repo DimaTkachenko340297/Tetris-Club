@@ -74,7 +74,6 @@ print_r($_SESSION);
                                 echo '</li>';
                             }
                             ?>
-<!-- Odkaz na odhlásenie, ak je používateľ prihlásený -->
 <?php if ($auth->isLoggedIn()) : ?>
     <li class="nav-item">
         <a class="nav-link logout-link" href="logout.php">Odhlásiť sa</a>
