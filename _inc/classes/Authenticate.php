@@ -32,22 +32,22 @@ class Authenticate
     }
 
     public function logout() {
-        // Zrušenie všetkých session premenných
+
         $_SESSION = array();
     
-        // Skontroluj či PHP používa cookies na správu session ID
+
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
-            // Nastav session cookie s prázdnou hodnotou a expiráciou v minulosti,
-            // čím sa efektívne odstráni z prehliadača
+
+
             setcookie(
-                session_name(), // Názov session cookie (napr. PHPSESSID)
-                '',             // Prázdna hodnota cookie (bude vymazaná)
-                time() - 42000, // Expirácia v minulosti (42 000 sekúnd späť)
-                $params["path"],      // Rovnaká cesta ako pôvodná cookie
-                $params["domain"],    // Rovnaká doména ako pôvodná cookie
-                $params["secure"],    // Nastavenie zabezpečenia HTTPS (ak bolo nastavené)
-                $params["httponly"]   // Nastavenie HTTPONLY (ochrana proti XSS)
+                session_name(), 
+                '',           
+                time() - 42000, 
+                $params["path"],  
+                $params["domain"],   
+                $params["secure"],  
+                $params["httponly"]   
             );
         }
     

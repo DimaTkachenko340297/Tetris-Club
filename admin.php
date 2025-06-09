@@ -10,14 +10,11 @@ $auth = new Authenticate($db);
 $contact = new Contact($db);
 $user = new User($db);
 
-// Require login
 $auth->requireLogin();
 
-// Get user role and email
 $userRole = $auth->getUserRole();
 $userEmail = $_SESSION['email'] ?? '';
 
-// Обработка отправки нового сообщения
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_message'])) {
     $name = $_SESSION['name'] ?? 'Unknown';
     $email = $_SESSION['email'] ?? '';
@@ -31,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new_message'])) {
     }
 }
 
-// Удаление сообщений
 if (isset($_GET['delete'])) {
     $messageId = $_GET['delete'];
     $message = $contact->show($messageId);
@@ -44,7 +40,6 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// Удаление пользователя (только для админа)
 if ($userRole == 0 && isset($_GET['delete_user'])) {
     $userId = $_GET['delete_user'];
     if ($userId != $_SESSION['user_id']) {
@@ -59,14 +54,12 @@ if ($userRole == 0 && isset($_GET['delete_user'])) {
     }
 }
 
-// Получение сообщений
 if ($userRole == 0) {
     $contacts = $contact->index();
 } else {
     $contacts = $contact->getUserMessages($userEmail);
 }
 
-// Fetch user points
 $currentUser = $user->getUserById($_SESSION['user_id'] ?? 0);
 $points = $currentUser['points'] ?? 0;
 
@@ -75,7 +68,7 @@ include('partials/header.php');
 
 <main class="main" style="padding-top: 3.4rem;">
     <div class="container">
-        <!-- Список сообщений -->
+
         <h2 class="mt-4">Messages</h2>
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
@@ -117,7 +110,7 @@ include('partials/header.php');
 
         <br>
 
-        <!-- Секция пользователей (только для админа) -->
+
         <?php if ($userRole == 0): ?>
             <?php
             $users = $user->index();
@@ -156,11 +149,11 @@ include('partials/header.php');
                 </table>
             </div>
         <?php else: ?>
-            <!-- Отображение баллов для текущего пользователя -->
+
             <div class="card mt-4">
                 <div class="card-body">
                     <h2 class="card-title">Your points</h2>
-                    <p>У вас <?= htmlspecialchars($points) ?> points.</p>
+                    <p>You have <?= htmlspecialchars($points) ?> points.</p>
                 </div>
             </div>
         <?php endif; ?>
