@@ -54,40 +54,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['score'])) {
                 </section>
 
                 <section class="instructions-section mt-5">
-                    <div class="container">
-                        <h3>Как играть</h3>
-                        <p>Используйте следующие клавиши для управления игрой:</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">← Стрелка влево: Двигать фигуру влево</li>
-                            <li class="list-group-item">→ Стрелка вправо: Двигать фигуру вправо</li>
-                            <li class="list-group-item">↓ Стрелка вниз: Мягкое падение (ускорить падение)</li>
-                            <li class="list-group-item">↑ Стрелка вверх: Повернуть фигуру по часовой стрелке</li>
-                            <li class="list-group-item">Z: Повернуть фигуру против часовой стрелки</li>
-                            <li class="list-group-item">Пробел: Жёсткое падение (мгновенно опустить фигуру)</li>
-                        </ul>
-                    </div>
-                </section>
+    <div class="container">
+        <h3>How to Play</h3>
+        <p>Use the following keys to control the game:</p>
+        <ul class="list-group">
+            <li class="list-group-item">← Left Arrow: Move the piece left</li>
+            <li class="list-group-item">→ Right Arrow: Move the piece right</li>
+            <li class="list-group-item">↓ Down Arrow: Soft drop (accelerate the fall)</li>
+            <li class="list-group-item">↑ Up Arrow: Rotate the piece clockwise</li>
+            <li class="list-group-item">Z: Rotate the piece counterclockwise</li>
+            <li class="list-group-item">Space: Hard drop (instantly drop the piece)</li>
+        </ul>
+    </div>
+</section>
 
-                <section class="accordion-section mt-5" style="padding-bottom: 1rem;">
-                    <div class="container">
-                        <div class="accordion" id="accordionExample2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingDisclaimer">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="true" aria-controls="collapseDisclaimer">
-                                        <strong>!!!Дисклеймер!!!</strong>
-                                    </button>
-                                </h2>
-                                <div id="collapseDisclaimer" class="accordion-collapse collapse show" aria-labelledby="headingDisclaimer" data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        <p><strong>Важно! Весь контент на этом сайте является шуткой и не имеет намерения оскорбить или унизить кого-либо. Все тексты, изображения и события, упомянутые на страницах Tetris Club, являются вымышленными и созданы исключительно в развлекательных целях. Мы не стремимся задеть чувства отдельных лиц, организаций или кого-либо ещё.</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<section class="accordion-section mt-5" style="padding-bottom: 1rem;">
+    <div class="container">
+        <div class="accordion" id="accordionExample2">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDisclaimer">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDisclaimer" aria-expanded="true" aria-controls="collapseDisclaimer">
+                        <strong>!!!Disclaimer!!!</strong>
+                    </button>
+                </h2>
+                <div id="collapseDisclaimer" class="accordion-collapse collapse show" aria-labelledby="headingDisclaimer" data-bs-parent="#accordionExample2">
+                    <div class="accordion-body">
+                        <p><strong>Important! All content on this site is intended as a joke and is not meant to offend or insult anyone. All texts, images, and events mentioned on the Tetris Club pages are fictional and created purely for entertainment purposes. We do not intend to hurt the feelings of any individuals, organizations, or anyone else.</strong></p>
                     </div>
-                </section>
+                </div>
             </div>
-        </main>
+        </div>
+    </div>
+</section>
 
         <style>
             .canvas-wrap {
